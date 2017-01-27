@@ -13,14 +13,29 @@ exports.read = function(req, res) {
 /**
  * Create JSON response with all users
  */
+var users = [
+    {name: "Kleine boom"},
+    {name: "Grote boom"},
+    {name: "Struik"}
+];
+
 exports.list = function(req, res) {
 
     console.log("voor nu geven we altijd dezelfde lijst terug met users");
 
+    res.json(users);
+};
+
+exports.create = function(req, res){
+    var newUser = req.body;
+    users.push(newUser);
+    res.json(newUser);
+};
+
+exports.else = function(req, res){
+
     var users = [
-        {name: "Beren"},
-        {name: "Hugo"},
-        {name: "Ingrid"}
+        {name: "rrrrrrrrrr"}
     ];
 
     res.json(users);
